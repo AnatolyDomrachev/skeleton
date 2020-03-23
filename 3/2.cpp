@@ -35,6 +35,7 @@ double proizv(int* an, int n)
 	int imin, imax;
 	imin = fmin(an,n);
 	imax = fmax(an,n);
+
 	if(imin > imax)
 		swap(imin, imax);
 	cout << "imin = " << imin << endl;
