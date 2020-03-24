@@ -3,6 +3,25 @@
 
 using namespace std;
 
+void sort(int* an, int n)
+{
+	double maxe;
+	int maxn;
+
+	for(int i=0; i<n;i++)
+	{
+		maxe = an[i];
+		maxn = i;
+		for(int j=i; j<n;j++)
+			if(an[j] > maxe)
+			{
+				maxe = an[j];
+				maxn = j;
+			}
+		swap(an[i], an[maxn]);
+	}	
+}
+
 int fmin(int* an, int n)
 {
 	int index = 0;
@@ -10,7 +29,7 @@ int fmin(int* an, int n)
 	for(int i=0; i<n;i++)
 		if(abs(an[i]) < mmin)
 		{
-			mmin = an[i];
+			mmin = abs(an[i]);
 			index = i;
 		}
 	return index;
@@ -23,7 +42,7 @@ int fmax(int* an, int n)
 	for(int i=0; i<n;i++)
 		if(abs(an[i]) > mmax)
 		{
-			mmax = an[i];
+			mmax = abs(an[i]);
 			index = i;
 		}
 	return index;
@@ -38,12 +57,15 @@ double proizv(int* an, int n)
 
 	if(imin > imax)
 		swap(imin, imax);
-	cout << "imin = " << imin << endl;
-	cout << "imax = " << imax << endl;
+	//cout << "imin = " << imin << endl;
+	//cout << "imax = " << imax << endl;
 
 	double pr = 1;
 	for(int i=imin+1; i<imax;i++)
 		pr *= an[i];
+
+	if(imax - imin < 2)
+		pr = 0;
 
 	return pr;
 }
@@ -74,7 +96,10 @@ int main()
 	double p = proizv(an,n);
 	cout << "Произведение элементов между максимальным и минимальным по модулю = " << p << endl;
 
+	sort(an,n);
+
+	cout << "Отсортированный массив\n";
 	for(int i=0; i<n;i++)
-		cout << an[i];
+		cout << an[i]<<endl;
 	return 0;
 }
