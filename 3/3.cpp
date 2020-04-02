@@ -4,7 +4,26 @@ using namespace std;
 
 int seria(double ** amn, int M, int N)
 {
-	return 0;
+	int count = 0;//счетчик в текущей строке
+	int imax = 0;//максимальная серия подряд по всему массиву
+	int smax = 0;//номер строки с максимальной серией
+	for(int i =0; i<M;i++)
+	{
+		count = 0;
+		for(int j =0; j<N-1;j++)
+			if( amn[i][j] == amn[i][j+1])
+			{
+				count++;
+				if( count > imax )
+				{
+					imax = count;
+					smax = i;
+				}
+			}
+			else
+				count=0;
+	}
+	return smax+1;
 }
 
 int stolb(double ** amn, int M, int N)
