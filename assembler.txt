@@ -1,0 +1,3 @@
+Программа на Си https://github.com/AnatolyDomrachev/skeleton/blob/master/assembler.c
+Программа автоматически переведена на ассемблер https://github.com/AnatolyDomrachev/skeleton/blob/master/assembler.s
+Из предыдущей программы я удалил то, что считаю лишним https://github.com/AnatolyDomrachev/skeleton/blob/master/assembler2.s
